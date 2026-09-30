@@ -195,42 +195,6 @@ main {
   opacity: 0.8;
 }
 
-/* --------------------------------------------------------------------------
-   2.6 Branding_Block  (#branding)
-   -------------------------------------------------------------------------- */
-
-#branding {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1rem;
-  width: 100%;
-  max-width: 960px;
-  /* Sits below the player — restrained size so player stays dominant */
-}
-
-#branding[hidden] {
-  display: none;
-}
-
-#branding-logo-wrapper img {
-  height: 28px;
-  width: auto;
-  display: block;
-  object-fit: contain;
-  border-radius: 3px;
-}
-
-#branding-name {
-  font-size: 0.8rem;
-  color: #999;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 200px;
-}
 
 /* --------------------------------------------------------------------------
    2.7 Responsive breakpoints
@@ -283,14 +247,6 @@ main {
     font-size: 1rem;
   }
 
-  #branding-logo-wrapper img {
-    height: 32px;
-  }
-
-  #branding-name {
-    font-size: 0.875rem;
-    max-width: 280px;
-  }
 }
 
 /* -- 1024px+ (desktops and large tablets in landscape) -- */
@@ -312,19 +268,6 @@ main {
 
   .error-message {
     font-size: 1.5rem;
-  }
-
-  #branding {
-    padding: 1rem 2rem;
-  }
-
-  #branding-logo-wrapper img {
-    height: 36px;
-  }
-
-  #branding-name {
-    font-size: 0.9rem;
-    max-width: 340px;
   }
 }
 

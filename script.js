@@ -7,10 +7,7 @@ const CONFIG = {
   title: "Invitation",
   autoplay: true,
   muted: true,
-  loop: false,
-  showBranding: true,
-  organizationName: "Acme Corp",
-  logoUrl: "assets/logo.png"
+  loop: false
 };
 
 // ============================================================
@@ -22,9 +19,6 @@ const playOverlay   = document.getElementById("play-overlay");
 const playBtn       = document.getElementById("play-btn");
 const errorState    = document.getElementById("error-state");
 const retryBtn      = document.getElementById("retry-btn");
-const branding      = document.getElementById("branding");
-const brandingLogo  = document.getElementById("branding-logo-wrapper");
-const brandingName  = document.getElementById("branding-name");
 
 // ============================================================
 // Visibility helpers (exposed globally for testability)
@@ -139,36 +133,6 @@ function handleRetry() {
 retryBtn.addEventListener("click", handleRetry);
 
 // ============================================================
-// initBranding — conditionally render the Branding_Block
-// ============================================================
-function initBranding() {
-  if (!CONFIG.showBranding) {
-    branding.setAttribute("hidden", "");
-    return;
-  }
-
-  // Show branding block
-  branding.removeAttribute("hidden");
-
-  // Render logo only when logoUrl is a non-empty string
-  if (CONFIG.logoUrl && CONFIG.logoUrl.trim() !== "") {
-    const img = document.createElement("img");
-    img.src = CONFIG.logoUrl;
-    img.alt = CONFIG.organizationName || "Organization logo";
-
-    // Silently hide the image if it 404s
-    img.addEventListener("error", function () {
-      img.setAttribute("hidden", "");
-    });
-
-    brandingLogo.appendChild(img);
-  }
-
-  // Set the organization name text
-  brandingName.textContent = CONFIG.organizationName;
-}
-
-// ============================================================
 // Accessibility: ensure aria-label on interactive elements
 // ============================================================
 if (!playBtn.getAttribute("aria-label")) {
@@ -185,7 +149,6 @@ if (!retryBtn.getAttribute("aria-label")) {
 document.addEventListener("DOMContentLoaded", function () {
   showLoadingScreen();
   initPlayer();
-  initBranding();
 });
 
 // ============================================================
@@ -194,7 +157,6 @@ document.addEventListener("DOMContentLoaded", function () {
 window.initPlayer        = initPlayer;
 window.handleAutoplay    = handleAutoplay;
 window.handleRetry       = handleRetry;
-window.initBranding      = initBranding;
 window.showLoadingScreen = showLoadingScreen;
 window.hideLoadingScreen = hideLoadingScreen;
 window.showPlayOverlay   = showPlayOverlay;
