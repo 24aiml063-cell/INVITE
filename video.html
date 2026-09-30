@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" role="status" aria-live="polite">
+    <div class="spinner" aria-hidden="true"></div>
+    <p>Loading video...</p>
+  </div>
+
+  <!-- Play Overlay -->
+  <div id="play-overlay" aria-hidden="true">
+    <button
+      id="play-btn"
+      aria-label="Tap to play the video"
+      type="button"
+    >
+      &#9654;
+    </button>
+  </div>
+
+  <!-- Error State -->
+  <div id="error-state" role="alert" aria-live="assertive" hidden>
+    <p class="error-message">Unable to load video.</p>
+    <p class="error-sub-message">Please check your internet connection or try again.</p>
+    <button
+      id="retry-btn"
+      aria-label="Retry loading the video"
+      type="button"
+    >
+      Retry
+    </button>
+  </div>
+
+  <!-- Video Player -->
+  <main>
+    <video
+      id="player"
+      controls
+      playsinline
+      preload="metadata"
+      title="Video Player"
+    >
+      Your browser does not support the video tag.
+    </video>
+  </main>
+
+  <!-- Branding Block -->
+  <div id="branding" aria-label="Organization branding" hidden>
+    <div id="branding-logo-wrapper"></div>
+    <span id="branding-name"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

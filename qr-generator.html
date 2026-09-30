@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Code Generator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 480px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      color: #111;
+    }
+    h1 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+    label { display: block; margin-bottom: 0.4rem; font-weight: bold; }
+    input[type="url"] {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 0.75rem;
+      padding: 0.5rem 1.25rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      background: #0070f3;
+      color: #fff;
+    }
+    button:hover { background: #005bc4; }
+    #validation-msg {
+      color: #c00;
+      margin-top: 0.5rem;
+      min-height: 1.2em;
+    }
+    #qr-container {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+    #download-btn { display: none; }
+  </style>
+</head>
+<body>
+  <h1>QR Code Generator</h1>
+
+  <label for="url-input">Enter URL</label>
+  <input
+    type="url"
+    id="url-input"
+    placeholder="https://example.com/video.html"
+    autocomplete="off"
+  >
+
+  <button id="generate-btn" type="button">Generate QR</button>
+
+  <p id="validation-msg" role="alert" aria-live="polite"></p>
+
+  <div id="qr-container" aria-label="Generated QR code"></div>
+
+  <button id="download-btn" type="button">Download PNG</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="qr-generator.js"></script>
+</body>
+</html>
